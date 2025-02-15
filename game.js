@@ -146,12 +146,25 @@ const ChineseRiddleGame = () => {
                             </div>
                         ))}
                         
-                        {shownHints < 3 && (
+                        {shownHints < 3 ? (
                             <button
                                 onClick={showNextHint}
                                 className="px-4 py-2 bg-gray-600 hover:bg-gray-500 rounded-lg transition-all duration-200 text-sm"
                             >
                                 Show Next Hint
+                            </button>
+                        ) : !isCorrect && (
+                            <button
+                                onClick={() => setMessage(
+                                    <div className="space-y-2">
+                                        <div className="text-xl font-bold">{currentRiddle.answer}</div>
+                                        <div className="text-lg">{currentRiddle.pinyin}</div>
+                                        <div className="text-gray-300">{currentRiddle.english}</div>
+                                    </div>
+                                )}
+                                className="px-4 py-2 bg-gray-600 hover:bg-gray-500 rounded-lg transition-all duration-200 text-sm"
+                            >
+                                Show Answer
                             </button>
                         )}
                     </div>
