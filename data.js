@@ -56,7 +56,7 @@ const riddleData = {
                 "媽媽常常在這裡做飯。",
                 "這裡有很多鍋和碗。"
             ],
-            answer: "廚房",
+            answer: "厨房",
             pinyin: "chúfáng",
             english: "kitchen"
         },
