@@ -35,10 +35,23 @@ const ChineseRiddleGame = () => {
             setMessage("Please select at least one HSK level");
             return;
         }
-        setGameStarted(true);
-        setCurrentRiddle(getRandomRiddle());
-        setScore(0);
-        setMessage("");
+        if (gameStarted) {
+            // Reset everything when starting a new game
+            setGameStarted(false);
+            setScore(0);
+            setMessage("");
+            setCurrentRiddle(null);
+            setShownHints(1);
+            setUserGuess("");
+            setIsCorrect(false);
+            setShowingSuccess(false);
+        } else {
+            // Starting first game
+            setGameStarted(true);
+            setCurrentRiddle(getRandomRiddle());
+            setScore(0);
+            setMessage("");
+        }
     };
 
     const handleLevelChange = (level) => {
@@ -115,7 +128,7 @@ const ChineseRiddleGame = () => {
                                             : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                                     }`}
                                 >
-                                    HSK {level}
+                                    {level.toUpperCase()}
                                 </button>
                             ))}
                         </div>
@@ -135,7 +148,7 @@ const ChineseRiddleGame = () => {
                             onClick={startGame}
                             className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-200"
                         >
-                            New Game
+                            Return to Menu
                         </button>
                     </div>
 
