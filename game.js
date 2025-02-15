@@ -227,4 +227,3 @@ const ChineseRiddleGame = () => {
 // Render the game
 const root = ReactDOM.createRoot(document.getElementById('game-root'));
 root.render(<ChineseRiddleGame />);
-};
